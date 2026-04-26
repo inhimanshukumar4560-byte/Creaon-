@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREAON Creative Hub | Premium Invitations & Design</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for High-Quality Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           ROOT VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-blue: #545de4; /* Brand Color */
+            --dark-blue: #1a1b41;
+            --bg-dark: #0a0a0f; /* Premium Dark Theme */
+            --text-light: #f4f4f9;
+            --text-gray: #b3b3b3;
+            --gold-accent: #d4af37; /* For Luxury Feel */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Cinzel', serif; /* Luxury Font for Headings */
+        }
+
+        /* =========================================
+           SCROLLBAR STYLING
+           ========================================= */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 5px;
+        }
+
+        /* =========================================
+           NAVIGATION BAR (GLASSMORPHISM)
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 35px;
+            color: var(--primary-blue);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo-text h1 {
+            font-size: 26px;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            color: var(--primary-blue);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================
+           HERO SECTION (3D EFFECT & ANIMATION)
+           ========================================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, #1a1b41 0%, #0a0a0f 70%);
+        }
+
+        /* Background floating shapes */
+        .shape {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+        }
+        .shape-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: rgba(84, 93, 228, 0.3); border-radius: 50%; }
+        .shape-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 10;
+        }
+
+        .hero-subtitle {
+            color: var(--primary-blue);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 65px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-title span {
+            color: var(--primary-blue);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(84, 93, 228, 0.4);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            box-shadow: 0 15px 35px rgba(84, 93, 228, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-blue);
+            background: rgba(84, 93, 228, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* 3D Floating Business Card in Hero */
+        .hero-image-container {
+            z-index: 10;
+            perspective: 1000px; /* Crucial for 3D effect */
+        }
+
+        .card-3d {
+            width: 400px;
+            height: 250px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: -20px 20px 60px rgba(0,0,0,0.5), 
+                        inset 0 0 0 1px rgba(255,255,255,0.5);
+            transform: rotateY(-20deg) rotateX(10deg);
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+            animation: float-3d 6s ease-in-out infinite;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+            box-shadow: 0 30px 60px rgba(84, 93, 228, 0.3);
+            animation-play-state: paused;
+        }
+
+        .card-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-align: center;
+        }
+        .card-logo span {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #333;
+            letter-spacing: 3px;
+        }
+
+        /* =========================================
+           ABOUT SECTION
+           ========================================= */
+        .section-padding {
+            padding: 100px 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 45px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--primary-blue);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: var(--gold-accent);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+        }
+
+        .stat-box h4 {
+            font-size: 35px;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* =========================================
+           SERVICES SECTION (EXTREME 3D CARDS)
+           ========================================= */
+        .services-section {
+            background: #0d0d14;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            perspective: 1000px;
+        }
+
+        .service-card {
+            background: rgba(25, 26, 46, 0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* 3D Lighting effect on hover */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: all 0.7s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            left: 200%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) rotateX(10deg) rotateY(-5deg) scale(1.05);
+            box-shadow: -15px 25px 40px rgba(0,0,0,0.6), 
+                        0 0 20px rgba(84, 93, 228, 0.3);
+            border-color: var(--primary-blue);
+            background: rgba(25, 26, 46, 0.9);
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), #2c338e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px auto;
+            font-size: 35px;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(84, 93, 228, 0.3);
+            transform: translateZ(30px); /* 3D pop out */
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .icon-wrapper {
+            transform: translateZ(50px) scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #fff;
+            transform: translateZ(20px);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+            transform: translateZ(10px);
+        }
+
+        /* =========================================
+           WORK PROCESS (TIMELINE)
+           ========================================= */
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process-container::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: dashed 2px var(--glass-border);
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            width: 30%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            background: var(--bg-dark);
+            border: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 auto 20px auto;
+            color: var(--primary-blue);
+            box-shadow: 0 0 30px rgba(84, 93, 228, 0.2);
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--primary-blue);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           CONTACT SECTION (PROFESSIONAL ID CARD UI)
+           ========================================= */
+        .contact-section {
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23545de4" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-card-3d {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 60px;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            gap: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card-3d::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px; width: 200px; height: 200px;
+            background: var(--primary-blue);
+            filter: blur(100px);
+            opacity: 0.5;
+            border-radius: 50%;
+        }
+
+        .contact-info-left {
+            flex: 1;
+        }
+
+        .contact-info-left h3 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .person-name {
+            font-size: 22px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            color: var(--text-gray);
+            transition: all 0.3s;
+        }
+
+        .info-item:hover {
+            color: #fff;
+            transform: translateX(10px);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(84, 93, 228, 0.1);
+            border: 1px solid rgba(84, 93, 228, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+
+        .info-item:hover .info-icon {
+            background: var(--primary-blue);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(84, 93, 228, 0.5);
+        }
+
+        .info-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .whatsapp-cta {
+            flex: 1;
+            background: linear-gradient(145deg, #1e1e2d, #151520);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background: #050508;
+            padding: 40px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: var(--glass-bg);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(84, 93, 228, 0.4);
+        }
+
+        footer p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* =========================================
+           ANIMATIONS & REVEAL CLASSES (JS CONTROLLED)
+           ========================================= */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float-3d {
+            0%, 100% { transform: rotateY(-20deg) rotateX(10deg) translateY(0); }
+            50% { transform: rotateY(-15deg) rotateX(15deg) translateY(-20px); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 1024px) {
+            .hero { flex-direction: column; justify-content: center; text-align: center; gap: 50px; }
+            .hero-title { font-size: 50px; }
+            .btn-group { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .contact-card-3d { flex-direction: column; }
+            .process-container { flex-direction: column; gap: 40px; }
+            .process-container::before { display: none; }
+            .process-step { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .hero-title { font-size: 35px; }
+            .card-3d { width: 300px; height: 180px; padding: 20px; }
+            .section-padding { padding: 60px 5%; }
+            .stats-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         HEADER / NAVBAR
+         ========================================= -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-infinity logo-icon"></i>
+            <div class="logo-text">
+                <h1>CREAON</h1>
+                <span>Creative Hub</span>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
+    <section id="home" class="hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        
+        <div class="hero-content reveal active">
+            <span class="hero-subtitle">Premium Digital Agency</span>
+            <h1 class="hero-title">Designing <span>Memories</span> For Your Special Day</h1>
+            <p class="hero-desc">We craft luxurious custom wedding cards, breathtaking e-invites, and stunning video invitations that leave a lasting impression on your guests.</p>
+            <div class="btn-group">
+                <a href="#services" class="btn btn-primary">Explore Designs <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="hero-image-container reveal active">
+            <!-- 3D Recreated Business Card Element -->
+            <div class="card-3d">
+                <div class="card-logo">
+                    <i class="fa-solid fa-infinity" style="font-size: 40px; margin-bottom:10px;"></i><br>
+                    CREAON
+                    <span>CREATIVE HUB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         ABOUT SECTION
+         ========================================= -->
+    <section id="about" class="section-padding">
+        <div class="section-header reveal">
+            <p>Welcome to Creaon</p>
+            <h2>Where Creativity Meets Elegance</h2>
+        </div>
+        
+        <div class="about-grid reveal">
+            <div class="about-image" style="position: relative;">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Wedding Invites" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                <div style="position: absolute; bottom: -20px; right: -20px; background: var(--primary-blue); padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(84,93,228,0.4);">
+                    <h3 style="font-family: 'Cinzel'; font-size: 24px; color:#fff;">100%</h3>
+                    <p style="font-size: 12px; color: #e0e0e0; letter-spacing: 1px;">CUSTOM DESIGNS</p>
+                </div>
+            </div>
+            
+            <div class="about-text">
+                <h3>Crafting Your Digital Presence</h3>
+                <p>At CREAON CREATIVE HUB, managed by Ketan Ramavat, we believe that an invitation is the first glimpse your guests get of your grand celebration. It needs to be perfect.</p>
+                <p>Based in Morbi, India, we specialize in high-end, professionally tailored graphic solutions. Whether it's a traditional physical wedding card or a modern animated video invite, our unmatched quality speaks for itself.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <h4>500+</h4>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>1000+</h4>
+                        <p>Designs Created</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>24/7</h4>
+                        <p>Premium Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         SERVICES SECTION (3D CARDS)
+         ========================================= -->
+    <section id="services" class="section-padding services-section">
+        <div class="section-header reveal">
+            <p>What We Offer</p>
+            <h2>Our Premium Services</h2>
+        </div>
+
+        <div class="services-grid reveal">
+            
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <h3>Custom Wedding Cards</h3>
+                <p>Bespoke physical wedding invitations crafted with premium materials, royal fonts, and colors that match your wedding theme exactly.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h3>E-Invites</h3>
+                <p>Sleek, modern, and easily shareable digital invitations. Perfect for sending instantly via WhatsApp, Instagram, or Email.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+                <h3>Engagement & Reception</h3>
+                <p>Exclusive designs tailored specifically for Ring Ceremonies and Grand Receptions, setting the right mood for your parties.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-file-video"></i>
+                </div>
+                <h3>PDF & Video Cards</h3>
+                <p>Interactive multi-page PDF invites and stunning HD Video Invitations complete with background music and beautiful animations.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================
+         WORK PROCESS SECTION
+         ========================================= -->
+    <section class="section-padding">
+        <div class="section-header reveal">
+            <p>How It Works</p>
+            <h2>Our Creative Process</h2>
+        </div>
+        
+        <div class="process-container reveal">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3 style="color:#fff; margin-bottom:10px;">Consultation</h3>
+                <p style="color:var(--text-gray);">Tell us your vision, theme, and requirements over a call or text.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3 style="color:#fff; margin-bottom:10px;">Draft & Design</h3>
+                <p style="color:var(--text-gray);">Our experts craft a stunning 3D/Digital draft for your approval.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3 style="color:#fff; margin-bottom:10px;">Final Delivery</h3>
+                <p style="color:var(--text-gray);">Receive your high-res files, videos, or printed cards on time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         CONTACT SECTION (ULTRA PREMIUM ID CARD)
+         ========================================= -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="section-header reveal">
+            <p>Get In Touch</p>
+            <h2>Let's Start Your Project</h2>
+        </div>
+
+        <div class="contact-wrapper reveal">
+            <div class="contact-card-3d">
+                
+                <div class="contact-info-left">
+                    <h3>Contact Details</h3>
+                    <div class="person-name">
+                        <i class="fa-solid fa-user-tie"></i> Ketan Ramavat
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <a href="tel:+918141658092">+91 8141658092</a>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <a href="https://instagram.com/creaon_08" target="_blank">@creaon_08</a>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <span>Morbi, Gujarat, India</span>
+                    </div>
+                </div>
+
+                <div class="whatsapp-cta">
+                    <h3 style="color:#fff; margin-bottom:15px; font-family:'Poppins';">Fastest Response</h3>
+                    <p style="color:var(--text-gray); font-size:14px;">Want to discuss a design immediately? Drop us a message on WhatsApp and we will reply instantly.</p>
+                    <a href="https://wa.me/918141658092?text=Hello%20Creaon%20Creative%20Hub,%20I%20need%20details%20about%20your%20services." target="_blank" class="whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="font-size:24px;"></i> Chat Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer>
+        <div class="logo-text" style="justify-content:center; margin-bottom:20px; display:flex; flex-direction:column; align-items:center;">
+            <h2 style="font-size: 24px; color: var(--text-light);">CREAON</h2>
+            <span style="font-family: 'Poppins'; font-size: 10px; color: var(--primary-blue); letter-spacing: 3px;">CREATIVE HUB</span>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/creaon_08" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/918141658092" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:+918141658092"><i class="fa-solid fa-phone"></i></a>
+        </div>
+        
+        <p>&copy; 2024 Creaon Creative Hub | Managed by Ketan Ramavat | All Rights Reserved.</p>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT FOR SCROLL ANIMATIONS (FUNCTIONS)
+         ========================================= -->
+    <script>
+        // Function to handle scroll reveal animations perfectly
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.reveal');
+            
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // Trigger point
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Add event listener for scroll
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Trigger once on load to show visible elements immediately
+        window.onload = revealOnScroll;
+
+        // Navbar background effect on scroll
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.8)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
